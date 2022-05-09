@@ -174,7 +174,7 @@ nav {display:none}
 
 .my-services {
     background-color:var(--clr-dark);
-    background-image: url(../images/typing.jpg);
+    background-image: url(/assets/images/cooking.jpg);
     background-size: cover;
     background-blend-mode: multiply;
     color: white;
