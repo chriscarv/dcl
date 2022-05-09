@@ -5,6 +5,7 @@ var appMeal = document.getElementById("display-food");
 var img = document.createElement("img");
 var resetBtn = document.getElementById("reload");
 var saveBtn = document.getElementById("save-btn");
+var appSave = document.getElementById("show-save");
 var foodArray = [];
 var mealName;
 var mealPic;
@@ -51,9 +52,16 @@ function logMeal(){
 }
 
 function showSave(){
+   
     var displayData = localStorage.getItem("meals");
     displayData = JSON.parse(displayData);
-    console.log(displayData[0].saveName);
+   // console.log(displayData[0].saveName);
+   
+   var liEl = document.createElement("li");
+   for(var i =0; i < displayData.length; i++){
+   liEl.innerHTML=displayData[i].saveName;
+   }
+    appSave.appendChild(liEl);
 }
 // fetch mealdb api for a random meal
 fetch(foodurl).then(function(response){
