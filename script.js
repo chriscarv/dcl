@@ -76,8 +76,45 @@ mealPic = data.meals[0].strMealThumb;
 })
 
 
-// drink logic
+//----------------------- drink logic -----------------------//
 
-var randomDrinkApi = "www.thecocktaildb.com/api/json/v1/1/random.php"
+//global Variables API links/HTML Buttons & Elements
+var randomDrinkApi = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
 var searchableDrinkApi = "www.thecocktaildb.com/api/json/v1/1/search.php" //must add query strings to use
+var drinkBtn = document.getElementById("drink");
+drinkBtn.addEventListener("click",generateNewDrink);
+var resetDrinkBtn = document.getElementById("reload-drink");
+resetDrinkBtn.addEventListener("click",generateNewDrink);
+var saveDrinkBtn = document.querySelector("#save-drink-btn");
+saveDrinkBtn.addEventListener("click",generateNewDrink);
+var displayDrink = document.getElementById("display-drink");
+var savedDrinks = document.getElementById("show-drink-save");
+var drinkName = "";
+var drinkPicUrl = "";
+var drinkImg = document.createElement("img");
+
+
+
+
+function generateNewDrink (){
+console.log("fuck")
+fetch(randomDrinkApi).then(function(response){
+    return response.json();
+}).then(function(data){
+console.log(data);
+drinkName = data.drinks[0].strDrink;
+    console.log(drinkName)
+drinkPicUrl = data.drinks[0].strDrinkThumb; 
+    console.log(drinkPicUrl)
+displayDrink.textContent = drinkName;
+drinkImg.src = drinkPicUrl;
+drinkImg.classList.add("img-fluid");
+document.getElementById("display-drink").appendChild(drinkImg);
+})
+.catch(function(error){
+    console.log(error);
+})
+}
+
+
 

@@ -39,101 +39,96 @@
             </div>
           </nav>
         </header>
-
 <!--Introduction-->
-<section class="intro"id="home">
+    <section class="intro"id="home">
     <h1 class="section__title section__title--intro">
         Hi, welcome to our <strong>site!</strong>
       </h1>
       <p class="section__subtitle section__subtitle--intro">Dish ideas galore</p>
       <img src="assets/images/WFP.png" alt="Wine pairing chart" class="intro__img">
-</section>
-                <!--My services-->
-                <section class="my-services" id="ourpurpose">
-                    <h2 class="section__title section__title--services">What We Do</h2>
-                    <div class="services">
-                        <div class="service">
-                            <h3>Pair dishes</h3>
-                            <p> If you're looking to pair dishes with wine, this is the site for you. Getting in a creative rut to create a meal for guests is a common issue, and we can put an end to that. </p>
-                        </div> <!--/service-->
+    </section>
+    <section class="my-services" id="ourpurpose">
+    <h2 class="section__title section__title--services">What We Do</h2>
+    <div class="services">
+    <div class="service">
+        <h3>Pair dishes</h3>
+        <p> If you're looking to pair dishes with wine, this is the site for you. Getting in a creative rut to create a meal for guests is a common issue, and we can put an end to that. </p>
+    </div> <!--/service-->
+    <div class="service">
+        <h3>Save you money</h3>
+        <p>Using our site also allows for you to save some money. Got some leftovers and a bottle of wine? Using our information, you can make brilliant meals using what you already have at home. Impress your guests, don't create waste, and feel good. </p>
+    </div> <!--/service-->
+    <div class="service">
+        <h3>Lower your overhead</h3>
+        <p>The usage of our site allows for a higher gain in profit for your company. You no longer have to utilize gas to go to each distribution center, as you can map an efficent route to one of your choice. The information we provide also allows for you to locate companies that may ship your items at a lower cost, creating more profit.  </p>
+    </div> <!--/service-->
+    </div><!--Closed /services-->
 
-                        <div class="service">
-                            <h3>Save you money</h3>
-                            <p>Using our site also allows for you to save some money. Got some leftovers and a bottle of wine? Using our information, you can make brilliant meals using what you already have at home. Impress your guests, don't create waste, and feel good. </p>
-                        </div> <!--/service-->
+    <a href="#work" class="btn">Make your meal!</a>
+    </section>
 
+    <!--Meal Generator--> <!--THIS IS THE SECTION YOU GUYS CAN INPUT JAVASCRIPT (THIS TEXT IS REPLACEABLE)-->
+    <div class="container" id="meal-generator">
+    <div class="row align-items-start">
+    <div class="col-6" id="food-box">
+        Food Box
+        <div class="meal-sec" >
+            <button class="gen-food btn" id="food">meal</button>
+            <div class="add-food" id="display-food">
+            </div>
+            <button class="reset btn" id="reload">new</button>
+            <button class="save btn" id="save-btn">save</button>
+            <div class="save-meal" id="show-save">
+                <h2>Saved Meal</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-6" id="drink-box">
+        Drink Box
+        <div class="drink-sec" >
+            <!-- <button class="gen-drink btn" id="drink" display: none>Drink</button> -->
+            <div class="add-food" id="display-drink">
+            </div>
+            <button class="reset btn" id="reload-drink">new</button>
+            <button class="save btn" id="save-drink-btn">save</button>
+            <div class="save-drink" id="show-drink-save">
+                <h2>Saved Drinks</h2>
+            </div>
+        </div>
 
-                        <div class="service">
-                            <h3>Lower your overhead</h3>
-                            <p>The usage of our site allows for a higher gain in profit for your company. You no longer have to utilize gas to go to each distribution center, as you can map an efficent route to one of your choice. The information we provide also allows for you to locate companies that may ship your items at a lower cost, creating more profit.  </p>
-                        </div> <!--/service-->
-                    </div><!--Closed /services-->
+    </div>
+    </div>
+    </div>
 
-                    <a href="#work" class="btn">Make your meal!</a>
-                </section>
+        <!--My Work-->
+        <section class="my-work" id="work">
+        <h2 class="section__title">Hot plates!</h2>
+        <p class="section__subtitle">Dishes for you to see, using our ingredient pairings:</p>
 
-                <!--Meal Generator--> <!--THIS IS THE SECTION YOU GUYS CAN INPUT JAVASCRIPT (THIS TEXT IS REPLACEABLE)-->
-                <div class="container" id="meal-generator">
-                    <div class="row align-items-start">
-                        <div class="col-6" id="food-box">
-                            Food Box
-                            <div class="meal-sec" >
-                                <button class="gen-food btn" id="food">meal</button>
-                                <div class="add-food" id="display-food">
-                                </div>
-                                <button class="reset btn" id="reload">new</button>
-                                <button class="save btn" id="save-btn">save</button>
-                                <div class="save-meal" id="show-save">
-                                    <h2>Saved Meal</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6" id="drink-box">
-                            Drink Box
-                            <div class="meal-sec" >
-                                <button class="gen-drink btn" id="drink">Drink</button>
-                                <div class="add-food" id="display-drink">
-                                </div>
-                                <button class="reset btn" id="reload">new</button>
-                                <button class="save btn" id="save-btn">save</button>
-                                <div class="save-drink" id="show-save">
-                                    <h2>Saved Drinks</h2>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <!--My Work-->
-                <section class="my-work" id="work">
-                    <h2 class="section__title">Hot plates!</h2>
-                    <p class="section__subtitle">Dishes for you to see, using our ingredient pairings:</p>
-
-                    <div class="portfolio">
-                        <a href="https://www.kj.com/blog/what-food-pair-chardonnay"class="portfolio__item">
-                            <img src="assets/images/wines.jpg" alt="Chardonnay and food" class="portfolio__img">
-                        </a>
-
-                       
-                            <a href="https://www.travlinmad.com/blog/traditional-food-around-the-world">
-                            <img src="assets/images/foods.jpg" alt="Stock image of food" class="portfolio__img">
-                        </a>
+        <div class="portfolio">
+        <a href="https://www.kj.com/blog/what-food-pair-chardonnay"class="portfolio__item">
+            <img src="assets/images/wines.jpg" alt="Chardonnay and food" class="portfolio__img">
+        </a>
 
 
-                       
-                            <a href="https://www.ties.com/blog/your-wine-and-food-pairing-primer">
-                            <img src="assets/images/pairing.jpg" alt="Food paired with wine" class="portfolio__img">
-                        </a>
+            <a href="https://www.travlinmad.com/blog/traditional-food-around-the-world">
+            <img src="assets/images/foods.jpg" alt="Stock image of food" class="portfolio__img">
+        </a>
 
 
-                        
-                            <a href="https://www.foodnetwork.com/recipes/packages/comfort-foods/easy-comfort-food-recipes/7-things-to-make-with-leftover-cooked-pasta">
-                            <img src="assets/images/LEFTOVERS.jpeg" alt="Leftovers turned into a new food" class="portfolio__img">
-                        </a>
 
-                    </div>
-                </section>
+            <a href="https://www.ties.com/blog/your-wine-and-food-pairing-primer">
+            <img src="assets/images/pairing.jpg" alt="Food paired with wine" class="portfolio__img">
+        </a>
+
+
+
+            <a href="https://www.foodnetwork.com/recipes/packages/comfort-foods/easy-comfort-food-recipes/7-things-to-make-with-leftover-cooked-pasta">
+            <img src="assets/images/LEFTOVERS.jpeg" alt="Leftovers turned into a new food" class="portfolio__img">
+        </a>
+
+        </div>
+        </section>
 
 
                 <!--Footer Section-->
