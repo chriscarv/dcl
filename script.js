@@ -11,12 +11,12 @@ var mealName;
 var mealPic;
 
 // generate a random meal
-mealClick.addEventListener("click",() => {
-    appMeal.textContent = mealName;
-    img.src = mealPic;
-    img.classList.add("img-fluid");
-    document.getElementById("display-food").appendChild(img);
-    })
+// mealClick.addEventListener("click",() => {
+//     appMeal.textContent = mealName;
+//     img.src = mealPic;
+//     img.classList.add("img-fluid mt-3");
+//     document.getElementById("display-food").appendChild(img);
+//     })
     
 // generate a new random meal
 resetBtn.addEventListener("click",()=>{
@@ -28,7 +28,10 @@ resetBtn.addEventListener("click",()=>{
     mealPic = data.meals[0].strMealThumb;   
     appMeal.textContent = mealName;
     img.src = mealPic;
-    img.classList.add("img-fluid");
+    img.classList.add("img-fluid"); //image will resize dynamically
+    img.classList.add("mb-2"); //adds a bit of space below image
+    img.classList.add("rounded-3"); //rounds image corners
+    img.classList.add("shadow-lg"); //adds shadow and light 3D effect
     document.getElementById("display-food").appendChild(img);
     })
     .catch(function(error){
@@ -67,7 +70,7 @@ function showSave(){
 fetch(foodurl).then(function(response){
     return response.json();
 }).then(function(data){
-console.log(data);
+// console.log(data);
 mealName = data.meals[0].strMeal;
 mealPic = data.meals[0].strMealThumb;   
 })
@@ -82,22 +85,17 @@ mealPic = data.meals[0].strMealThumb;
 var randomDrinkApi = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
 var searchableDrinkApi = "www.thecocktaildb.com/api/json/v1/1/search.php" //must add query strings to use
 var drinkBtn = document.getElementById("drink");
-drinkBtn.addEventListener("click",generateNewDrink);
 var resetDrinkBtn = document.getElementById("reload-drink");
-resetDrinkBtn.addEventListener("click",generateNewDrink);
-var saveDrinkBtn = document.querySelector("#save-drink-btn");
-saveDrinkBtn.addEventListener("click",generateNewDrink);
+var saveDrinkBtn = document.getElementById("save-drink-btn");
 var displayDrink = document.getElementById("display-drink");
 var savedDrinks = document.getElementById("show-drink-save");
 var drinkName = "";
 var drinkPicUrl = "";
 var drinkImg = document.createElement("img");
+var drinkList = [];
 
-
-
-
-function generateNewDrink (){
-console.log("fuck")
+//this randomly selects a new drink
+var generateNewDrink = function(){
 fetch(randomDrinkApi).then(function(response){
     return response.json();
 }).then(function(data){
@@ -108,13 +106,50 @@ drinkPicUrl = data.drinks[0].strDrinkThumb;
     console.log(drinkPicUrl)
 displayDrink.textContent = drinkName;
 drinkImg.src = drinkPicUrl;
-drinkImg.classList.add("img-fluid");
+drinkImg.classList.add("img-fluid"); //image will resize dynamically
+drinkImg.classList.add("mb-2"); //adds a bit of space below image
+drinkImg.classList.add("rounded-3"); //rounds image corners
+drinkImg.classList.add("shadow-lg"); //adds shadow and light 3D effect
+
+
 document.getElementById("display-drink").appendChild(drinkImg);
 })
 .catch(function(error){
     console.log(error);
 })
 }
+//this saves currrent drink to an array and triggers the log and show save drink functions
+function saveDrink (){
+    var savedDrink = {
+        saveName: drinkName,
+        savePic: drinkPicUrl
+    };
+    drinkList.push(savedDrink);
+    console.log(drinkList)
+    logDrink();
+    showDrinkSave();
+}
 
+//chucks the current saved drink to to local storage
+function logDrink(){
+    localStorage.setItem("drinks",JSON.stringify(drinkList));
+}
+//adds the current drink to the saved drink section 
+function showDrinkSave(){
+   
+    var displayData = localStorage.getItem("drinks");
+    displayData = JSON.parse(displayData);
+   // console.log(displayData[0].saveName);
+   
+   var liEl = document.createElement("li");
+   for(var i =0; i < displayData.length; i++){
+   liEl.innerHTML=displayData[i].saveName;
+   }
+    savedDrinks.appendChild(liEl);
+}
 
+// These are the buttons
+// drinkBtn.addEventListener("click",generateNewDrink);
+resetDrinkBtn.addEventListener("click",generateNewDrink);
+saveDrinkBtn.addEventListener("click",saveDrink);
 
