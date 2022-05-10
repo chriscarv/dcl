@@ -14,7 +14,7 @@ var mealPic;
 mealClick.addEventListener("click",() => {
     appMeal.textContent = mealName;
     img.src = mealPic;
-    img.classList.add("img-size");
+    img.classList.add("img-fluid");
     document.getElementById("display-food").appendChild(img);
     })
     
@@ -28,7 +28,7 @@ resetBtn.addEventListener("click",()=>{
     mealPic = data.meals[0].strMealThumb;   
     appMeal.textContent = mealName;
     img.src = mealPic;
-    img.classList.add("img-size");
+    img.classList.add("img-fluid");
     document.getElementById("display-food").appendChild(img);
     })
     .catch(function(error){
@@ -76,5 +76,8 @@ mealPic = data.meals[0].strMealThumb;
 })
 
 
+// drink logic
 
+var randomDrinkApi = "www.thecocktaildb.com/api/json/v1/1/random.php"
+var searchableDrinkApi = "www.thecocktaildb.com/api/json/v1/1/search.php" //must add query strings to use
 
