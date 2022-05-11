@@ -10,14 +10,6 @@ var foodArray = [];
 var mealName;
 var mealPic;
 
-// generate a random meal
-// mealClick.addEventListener("click",() => {
-//     appMeal.textContent = mealName;
-//     img.src = mealPic;
-//     img.classList.add("img-fluid mt-3");
-//     document.getElementById("display-food").appendChild(img);
-//     })
-    
 // generate a new random meal
 resetBtn.addEventListener("click",()=>{
     fetch(foodurl).then(function(response){
