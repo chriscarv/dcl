@@ -22,11 +22,11 @@ resetBtn.addEventListener("click",()=>{
     mealPic = data.meals[0].strMealThumb;   
     appMeal.textContent = mealName;
     img.src = mealPic;
-    img.classList.add("img-fluid"); //image will resize dynamically
-    img.classList.add("mb-2"); //adds a bit of space below image
-    img.classList.add("rounded-3"); //rounds image corners
-    img.classList.add("shadow-lg"); //adds shadow and light 3D effect
-    img.classList.add("food-pic");
+    img.classList.add("img-fluid", "mb-2", "rounded-3", "shadow-lg", ); //image will resize dynamically
+    // img.classList.add("mb-2"); //adds a bit of space below image
+    // img.classList.add("rounded-3"); //rounds image corners
+    // img.classList.add("shadow-lg"); //adds shadow and light 3D effect
+    // img.classList.add("food-pic");
     document.getElementById("display-food").appendChild(img);
     
     })
@@ -155,7 +155,7 @@ function showDrinkSave(){
    
    var liEl = document.createElement("li");
    for(var i =0; i < displayData.length; i++){
-   liEl.innerHTML=displayData[i].saveName;
+   liEl.innerHTML=displayData[i].saveName 
    liEl.classList.add("list-group-item")
    liEl.classList.add("shadow")
    }
