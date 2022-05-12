@@ -1,3 +1,5 @@
+//----------------------- food logic -----------------------//
+//global food Variables API links/HTML Buttons & Elements
 var foodurl = "https://www.themealdb.com/api/json/v1/1/random.php";
 var searchFood = "https://www.themealdb.com/api/json/v1/1/search.php?s="
 var mealClick = document.getElementById("food");
@@ -24,11 +26,18 @@ resetBtn.addEventListener("click",()=>{
     img.classList.add("mb-2"); //adds a bit of space below image
     img.classList.add("rounded-3"); //rounds image corners
     img.classList.add("shadow-lg"); //adds shadow and light 3D effect
+    img.classList.add("food-pic");
     document.getElementById("display-food").appendChild(img);
+    
     })
     .catch(function(error){
         console.log(error);
     })
+    if($("#save-btn").is(':hidden')){
+        setTimeout(() => {
+            $("#save-btn").toggle("slide")
+        }, 500);
+    }
     })
 
 // save to local storage
@@ -40,6 +49,9 @@ saveBtn.addEventListener("click",()=>{
     foodArray.push(saveMeal);
     logMeal();
     showSave();
+    if($(".saved-meal-header").is(':hidden')){
+        $(".saved-meal-header)").toggle("fold")
+    }
 })  
 
 function logMeal(){
@@ -47,7 +59,7 @@ function logMeal(){
 }
 
 function showSave(){
-   
+   $(".saved-meal-header").toggle(true);
     var displayData = localStorage.getItem("meals");
     displayData = JSON.parse(displayData);
    // console.log(displayData[0].saveName);
@@ -55,6 +67,8 @@ function showSave(){
    var liEl = document.createElement("li");
    for(var i =0; i < displayData.length; i++){
    liEl.innerHTML=displayData[i].saveName;
+   liEl.classList.add("list-group-item")
+   liEl.classList.add("shadow")
    }
     appSave.appendChild(liEl);
 }
@@ -73,7 +87,7 @@ mealPic = data.meals[0].strMealThumb;
 
 //----------------------- drink logic -----------------------//
 
-//global Variables API links/HTML Buttons & Elements
+//global drink Variables API links/HTML Buttons & Elements
 var randomDrinkApi = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
 var searchableDrinkApi = "www.thecocktaildb.com/api/json/v1/1/search.php" //must add query strings to use
 var drinkBtn = document.getElementById("drink");
@@ -108,7 +122,12 @@ document.getElementById("display-drink").appendChild(drinkImg);
 })
 .catch(function(error){
     console.log(error);
-})
+}
+)
+if($("#save-drink-btn").is(':hidden')){
+    setTimeout(() => {
+        $("#save-drink-btn").toggle("slide")
+    }, 500);}
 }
 //this saves currrent drink to an array and triggers the log and show save drink functions
 function saveDrink (){
@@ -128,7 +147,8 @@ function logDrink(){
 }
 //adds the current drink to the saved drink section 
 function showDrinkSave(){
-   
+    $(".saved-drink-header").toggle(true);
+
     var displayData = localStorage.getItem("drinks");
     displayData = JSON.parse(displayData);
    // console.log(displayData[0].saveName);
@@ -136,6 +156,8 @@ function showDrinkSave(){
    var liEl = document.createElement("li");
    for(var i =0; i < displayData.length; i++){
    liEl.innerHTML=displayData[i].saveName;
+   liEl.classList.add("list-group-item")
+   liEl.classList.add("shadow")
    }
     savedDrinks.appendChild(liEl);
 }
@@ -145,3 +167,7 @@ function showDrinkSave(){
 resetDrinkBtn.addEventListener("click",generateNewDrink);
 saveDrinkBtn.addEventListener("click",saveDrink);
 
+//------Retrieve Local Storage on Page load--//
+if("meals" in localStorage){showSave()}
+// if (!localStorage.getItem("meals")){showSave()}
+if("drinks" in localStorage){showDrinkSave()}
