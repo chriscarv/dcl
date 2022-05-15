@@ -1,6 +1,8 @@
 # Creative Meals
 Creative Meals is a lightweight and simple single page application for randomly generating meal pairings. 
 
+You can see the site [here](https://chriscarv.github.io/dcl/)
+
 ![Screnshot of App](assets/Screenshot.png)
 
 ## Features
