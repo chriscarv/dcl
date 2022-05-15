@@ -7,6 +7,7 @@ var appMeal = document.getElementById("display-food");
 var img = document.createElement("img");
 var resetBtn = document.getElementById("reload");
 var saveBtn = document.getElementById("save-btn");
+var clearBtn = document.getElementById("clear-btn");
 var appSave = document.getElementById("show-save");
 var foodArray = [];
 var mealName;
@@ -38,6 +39,11 @@ resetBtn.addEventListener("click",()=>{
             $("#save-btn").toggle("slide")
         }, 500);
     }
+    if($("#clear-btn").is(':hidden')){
+        setTimeout(() => {
+            $("#clear-btn").toggle("slide")
+        }, 500);
+    }
     })
 
 // save to local storage
@@ -53,6 +59,12 @@ saveBtn.addEventListener("click",()=>{
         $(".saved-meal-header)").toggle("fold")
     }
 })  
+//clear local storage
+clearBtn.addEventListener("click",()=>{
+  foodArray = [];
+  logMeal(); 
+  window.location.reload();
+})
 
 function logMeal(){
     localStorage.setItem("meals",JSON.stringify(foodArray));
@@ -93,6 +105,7 @@ var searchableDrinkApi = "www.thecocktaildb.com/api/json/v1/1/search.php" //must
 var drinkBtn = document.getElementById("drink");
 var resetDrinkBtn = document.getElementById("reload-drink");
 var saveDrinkBtn = document.getElementById("save-drink-btn");
+var clearDrinkBtn = document.getElementById("clear-drink-btn");
 var displayDrink = document.getElementById("display-drink");
 var savedDrinks = document.getElementById("show-drink-save");
 var drinkName = "";
@@ -128,6 +141,11 @@ if($("#save-drink-btn").is(':hidden')){
     setTimeout(() => {
         $("#save-drink-btn").toggle("slide")
     }, 500);}
+    if($("#clear-drink-btn").is(':hidden')){
+        setTimeout(() => {
+            $("#clear-drink-btn").toggle("slide")
+        }, 500);
+    }
 }
 //this saves currrent drink to an array and triggers the log and show save drink functions
 function saveDrink (){
@@ -145,6 +163,11 @@ function saveDrink (){
 function logDrink(){
     localStorage.setItem("drinks",JSON.stringify(drinkList));
 }
+clearDrinkBtn.addEventListener("click", ()=>{
+    drinkList = [];
+    logDrink();
+    window.location.reload();
+})
 //adds the current drink to the saved drink section 
 function showDrinkSave(){
     $(".saved-drink-header").toggle(true);

@@ -35,7 +35,9 @@
 
 /*General Style*/
 
-
+li{
+    list-style: none;
+}
 body {
     background: var(--clr-light);
     color:var(--clr-dark);
